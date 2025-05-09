@@ -68,3 +68,51 @@ const sol = document.getElementById('sol');
         }
       });
     });
+
+    const imagens = document.getElementById('imagens');
+    const esquerda = document.querySelector('.seta.esquerda');
+    const direita = document.querySelector('.seta.direita');
+    const largura = 800;
+
+    let index = 0;
+    let allowClick = true;
+
+    function mover() {
+      imagens.style.transition = 'transform 0.5s ease';
+      imagens.style.transform = `translateX(${-index * largura}px)`;
+    }
+
+    function resetarPosicao() {
+      if (index === 3) {
+        // Se chegar na última imagem, volta para a primeira
+        index = 0;
+        imagens.style.transition = 'none'; // Sem transição
+        imagens.style.transform = `translateX(${-index * largura}px)`;
+      } else if (index < 0) {
+        // Se tentar ir antes da primeira, vai para a última
+        index = 2;
+        imagens.style.transition = 'none'; // Sem transição
+        imagens.style.transform = `translateX(${-index * largura}px)`;
+      }
+    }
+
+    direita.addEventListener('click', () => {
+      if (!allowClick) return;
+      allowClick = false;
+      index++;
+      mover();
+      setTimeout(() => { allowClick = true; }, 500); // Libera clique após animação
+    });
+
+    esquerda.addEventListener('click', () => {
+      if (!allowClick) return;
+      allowClick = false;
+      index--;
+      mover();
+      setTimeout(() => { allowClick = true; }, 500); // Libera clique após animação
+    });
+
+    imagens.addEventListener('transitionend', resetarPosicao);
+
+    // Inicializa na primeira imagem
+    mover();
