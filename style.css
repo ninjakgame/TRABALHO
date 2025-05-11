@@ -208,6 +208,10 @@ header{
   margin: 40px 0 100px 0;
 }
 
+img{
+  width: 140px;
+}
+
 .imagens {
   display: flex;
   transition: transform 0.5s ease;
@@ -366,13 +370,24 @@ header{
     margin: 20px 20px;
   }
 
+  .container-marcar{
+    background-color: #1a1a40;
+  }
+
+  .texto1{
+      text-align: center;
+      font-size: 25px;
+      margin-top: 30px;
+  }
+
   .qualidade-container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
-    gap: 15px;
+    grid-template-columns: repeat(auto-fit, minmax(90px, auto));
+    gap: 25px;
     margin-bottom: 30px;
     max-width: 320px;
     width: 100%;
+    align-items: center;
     justify-items: center;
   }
 
