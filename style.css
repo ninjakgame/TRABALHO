@@ -205,7 +205,7 @@ header{
   height: 300px;
   overflow: hidden;
   border-radius: 12px;
-  margin: 40px 0 100px 0;
+  margin: 80px 0 100px 0;
 }
 
 img{
@@ -410,6 +410,10 @@ img{
   .bottom-nav a svg {
     width: 30px; /* Aumentar o tamanho dos ícones no mobile */
     height: 30px;
+  }
+
+  h3{
+    margin: 6px 0 0 -30px;
   }
 }
 
