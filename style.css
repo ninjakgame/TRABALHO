@@ -422,3 +422,15 @@ img{
     gap: 2rem;
   }
 }
+
+.page {
+  display: none;
+}
+
+.page:first-of-type {
+  display: block; /* A página inicial é exibida por padrão */
+}
+
+.nav-item.active {
+  color: #007bff; /* Muda a cor do ícone quando ativo */
+}

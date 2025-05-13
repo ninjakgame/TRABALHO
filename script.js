@@ -160,3 +160,43 @@ document.querySelectorAll('.bottom-nav a').forEach(link => {
     this.classList.add('active');
   });
 });
+
+document.addEventListener('DOMContentLoaded', function () {
+  const navItems = document.querySelectorAll('.nav-item');
+  const pages = document.querySelectorAll('.page');
+
+  // Função para esconder todas as páginas
+  function hidePages() {
+    pages.forEach(page => {
+      page.style.display = 'none';
+    });
+  }
+
+  // Função para ativar uma página
+  function showPage(pageId) {
+    hidePages();
+    const page = document.getElementById(pageId);
+    if (page) {
+      page.style.display = 'block';
+    }
+  }
+
+  // Adiciona o evento de clique em cada item de navegação
+  navItems.forEach(item => {
+    item.addEventListener('click', function (event) {
+      // Previne o comportamento padrão de navegação
+      event.preventDefault();
+
+      // Atualiza a classe ativa nos itens de navegação
+      navItems.forEach(nav => nav.classList.remove('active'));
+      item.classList.add('active');
+
+      // Mostra a página correspondente
+      const pageId = item.getAttribute('data-page');
+      showPage(pageId);
+    });
+  });
+
+  // Inicializa com a página "home" visível
+  showPage('home');
+});

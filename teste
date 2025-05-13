@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Site Mobile com Menu</title>
+  <style>
+      .page {
+      display: none;
+      padding: 20px;
+      height: calc(100vh - 60px);
+      overflow-y: auto;
+    }
+
+    .page.active {
+      display: block;
+    }
+
+    .bottom-nav {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 60px;
+      background: #ffffff;
+      border-top: 1px solid #ccc;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+    }
+
+    .nav-item {
+      flex: 1;
+      text-align: center;
+      cursor: pointer;
+      color: #555;
+      transition: color 0.3s;
+    }
+
+    .nav-item.active {
+      color: #007bff;
+    }
+
+    .nav-item i {
+      font-size: 24px;
+      display: block;
+    }
+
+    .nav-item span {
+      font-size: 12px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Páginas -->
+  <div id="home" class="page active">
+    <h2>🏠 Página Inicial</h2>
+    <p>Bem-vindo à página inicial do app.</p>
+  </div>
+
+  <div id="perfil" class="page">
+    <h2>👤 Perfil</h2>
+    <p>Informações do usuário.</p>
+  </div>
+
+  <div id="config" class="page">
+    <h2>⚙️ Configurações</h2>
+    <p>Defina suas preferências aqui.</p>
+  </div>
+
+  <!-- Menu Inferior -->
+  <div class="bottom-nav">
+    <div class="nav-item active" data-target="home">
+      <i>🏠</i>
+    </div>
+    <div class="nav-item" data-target="perfil">
+      <i>👤</i>
+    </div>
+    <div class="nav-item" data-target="config">
+      <i>⚙️</i>
+    </div>
+  </div>
+
+  <script>
+    const navItems = document.querySelectorAll('.nav-item');
+    const pages = document.querySelectorAll('.page');
+
+    navItems.forEach(item => {
+      item.addEventListener('click', () => {
+        // Ativar a página correspondente
+        const target = item.getAttribute('data-target');
+
+        pages.forEach(page => {
+          page.classList.remove('active');
+          if (page.id === target) {
+            page.classList.add('active');
+          }
+        });
+
+        // Atualizar o estado visual dos ícones
+        navItems.forEach(i => i.classList.remove('active'));
+        item.classList.add('active');
+      });
+    });
+  </script>
+
+</body>
+</html>
