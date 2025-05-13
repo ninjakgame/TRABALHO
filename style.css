@@ -1,7 +1,9 @@
 :root {
-  --bg-color: #b4dfff;
+  --bg-color: #8accff;
   --text-color: #000;
   --card-bg: #fff;
+  --cor-letra: rgb(255, 255, 0);
+  --cor-letra2: rgb(240, 250, 99);
 }
 
 body {
@@ -99,10 +101,13 @@ header{
   display: flex;
   justify-content: space-between;
   align-items: center;
+  
+  background-color: var(--bg-color)
 }
 
 .logo{
   padding: 0 50px;
+  color: var(--cor-letra);
 }
 
 .tema{
@@ -196,6 +201,7 @@ header{
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  background-color: var(--bg-color);
 }
 
 .carrossel {
@@ -378,6 +384,7 @@ img{
       text-align: center;
       font-size: 25px;
       margin-top: 30px;
+      color: var(--cor-letra);
   }
 
   .qualidade-container {
@@ -423,14 +430,10 @@ img{
   }
 }
 
-.page {
-  display: none;
+h2{
+  color: var(--cor-letra2);
 }
 
-.page:first-of-type {
-  display: block; /* A página inicial é exibida por padrão */
-}
-
-.nav-item.active {
-  color: #007bff; /* Muda a cor do ícone quando ativo */
+p{
+  color: var(--cor-letra2);
 }
